@@ -1,0 +1,189 @@
+/*
+ * @author Mariusz Maroń <mmaron@nexway.com>
+ */
+
+// LAYOUT
+
+body {
+    section {
+        .choose-player {
+            margin-top: 6.26em;
+
+            .player {
+                float: left;
+                margin: 3em;
+                -webkit-animation: 1600ms pulsate infinite alternate ease-in-out;
+                -moz-animation: 1600ms pulsate infinite alternate ease-in-out;
+                -ms-animation: 1600ms pulsate infinite alternate ease-in-out;
+                -o-animation: 1600ms pulsate infinite alternate ease-in-out;
+                animation: 1600ms pulsate infinite alternate ease-in-out;  
+
+                .player-image {
+                    background: rgba(0,0,0,.4);
+                    border-radius: .18em;
+                    .box-sizing(padding-box);
+                    border: .2em solid rgb(237, 175, 61);
+                    .square(10em);                                            
+                    }
+
+                    &.confirm {
+                            -webkit-animation: none;
+                            -moz-animation: none;
+                            -ms-animation: none;
+                            -o-animation: none;
+                            animation: none;
+
+                        .player-image {
+                            position: relative;
+                            background-color: rgba(0,0,0,.5) !important;
+                            border: 0.2em solid #49df3f;
+
+                            .box-shadow(inset 0 0 10em #000);
+                        }
+
+                        .player-confirm {
+                            color: #49df3f;
+                        }
+                    }                    
+            }
+
+            // .person {
+            //     background: rgba(0,0,0,.4);
+            //     padding: .62em;
+            //     .box-shadow(0 0 .62em 0 rgba(36, 83, 175, .9));
+            //     display: inline-block;
+            //     margin: 1.25em;
+            //     .box-sizing(padding-box);
+            //     border: .12em solid transparent;
+            //     border-radius: .18em;
+            //     @media screen and (-webkit-min-device-pixel-ratio:0) {
+            //         padding: .5em;
+            //     }
+            //     .image {
+            //         text-align: center;
+            //         img {
+            //             .box-sizing(padding-box);
+            //             float: left;
+            //         }
+            //     }
+            //     .total-points {
+            //         text-align: center;
+            //         font-size: 1.12em;
+            //         color: #fff;
+            //     }
+            //     .answers {
+            //         text-align: center;
+            //         .good, .bad {
+            //         }
+            //         .good {
+            //             color: #6EAD3E;
+            //             &:before {
+            //                 content: "Good: ";
+            //             }
+            //         }
+            //         .bad {
+            //             color: #A52D2B;
+            //             &:before {
+            //                 content: "Bad: ";
+            //             }
+            //         }
+            //     }
+            //     &.normal {
+            //         .square(13.75em);
+            //         .image {
+            //             .square(12.5em);
+            //         }
+            //     }
+            //     &.small {
+            //         .square(7.5em);
+            //         .image {
+            //             .square(6.25em);
+            //             background-size: 4.37em 4.37em !important;
+            //         }
+            //     }
+            //     &.active {
+            //         .box-shadow(0 0 1.87em 0 rgba(237, 175, 61, .6));
+            //         border: .12em solid rgb(237, 175, 61);
+            //         -webkit-animation: 1600ms pulsate infinite alternate ease-in-out;
+            //         -moz-animation: 1600ms pulsate infinite alternate ease-in-out;
+            //         -ms-animation: 1600ms pulsate infinite alternate ease-in-out;
+            //         -o-animation: 1600ms pulsate infinite alternate ease-in-out;
+            //         animation: 1600ms pulsate infinite alternate ease-in-out;
+                    
+            //     }
+            //     &.chosen {
+            //         .box-shadow(0 0 1.87em 0 rgba(73, 223, 63, .6));
+            //         border: .12em solid rgb(73, 223, 63);
+            //         .image {
+            //             .transition(opacity .4s linear);
+            //             position: relative;
+            //             &:after {
+            //                 content: "";
+            //                 position: absolute;
+            //                 border-color: rgb(73, 223, 63);
+            //                 border-style: solid;
+            //                 border-width: 0 .93em .93em 0;
+            //                 height: 5em;
+            //                 left: 40%;
+            //                 top: 30%;
+            //                 margin-top: -.68em;
+            //                 -moz-transform: rotate(45deg);
+            //                 -webkit-transform: rotate(45deg);
+            //                 transform: rotate(45deg);
+            //                 width: 2.5em;
+
+            //                 -webkit-animation: .6s stamp linear;
+            //                 -moz-animation: .6s stamp linear;
+            //                 -ms-animation: .6s stamp linear;
+            //                 -o-animation: .6s stamp linear;
+            //                 animation: .6s stamp linear;
+            //             }
+            //             &:before {
+            //                 content: "";
+            //                 position: absolute;
+            //                 top: -.68em;
+            //                 left: -.68em;
+            //                 .box-shadow(0 0 1.87em 0 rgba(73, 223, 63, .6));
+            //                 border: .12em solid rgb(73, 223, 63);
+            //                 width: 12.68em;
+            //                 height: 12.68em;
+            //                 z-index: -1;
+            //                 display: block;
+            //                 opacity: 0;
+
+            //                 -webkit-animation: 0.9s scaleBox linear;
+            //                 -moz-animation: 0.9s scaleBox linear;
+            //                 -ms-animation: 0.9s scaleBox linear;
+            //                 -o-animation: 0.9s scaleBox linear;
+            //                 animation: 0.9s scaleBox linear;
+            //             }
+            //             img {
+            //                 .opacity(.2);
+            //             }
+            //         }
+            //     }   
+            //     &.mini {
+            //         padding: .3em;
+            //         .square(3.12em);
+            //         .image {
+            //             .square(1.87em);
+            //             background-size: 1.87em 1.87em !important;
+            //         }
+            //         &.empty {
+            //             .image {
+            //                 .square(2.5em);
+            //             }
+            //         }
+            // }
+            //     &.empty {
+            //         .image {
+            //             background: url(../img/question-mark-icon.png) center center no-repeat;
+            //             img {
+            //                 display: none;
+            //             }
+            //         }
+            //     }
+            // }
+        }
+    }
+}

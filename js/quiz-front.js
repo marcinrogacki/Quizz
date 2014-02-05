@@ -29,6 +29,7 @@ QuizFront.setPlayerProfile = function(playerId, playerProfileId) {
 QuizFront.confirmProfile = function(playerId) {
   var playerBlock = QuizFront.getPlayerBlock(playerId);
   playerBlock.find('.player-confirm').html('&#10004;');
+  playerBlock.find('.player-image').parent().addClass('confirm');
 }
 
 // q&a
@@ -41,12 +42,24 @@ QuizFront.updatePlayerScore = function(playerId) {
 QuizFront.showQuizBoard = function() {
   var block = $('#game-players-mini ul');
   $.each(Player.getAll(), function(idx) {
-    var playerBlock = $('<li class="player-' + idx + 
-        '"><span class="name"></span><span class="score"></span></li>');
+    var playerBlock = $('<li class="player player-' + idx + 
+        '"><div class="info-player"><div class="name"></div><div class="score points"></div></div><div class="avatar"><div class="image"><img src="" /></div></div></li>');
     var playerProfile = PlayerProfile.get( Player.get(idx).getProfileId() );
     playerBlock.find('.name').text( playerProfile.getName() );
+    playerBlock.find('.avatar img').attr( 'src', playerProfile.getImage() );
     block.append(playerBlock);
     QuizFront.updatePlayerScore(idx);
+
+    // hide choose categories
+    $('.choose-category').slideUp();
+    $('#category').slideUp();
+
+    // float left players when is more than 4
+    var $players = $('ul.players li');
+
+    if ($players.length > 4) {
+        $players.addClass('left');
+    };
   });
 
   $('#game-players').hide();
@@ -55,12 +68,13 @@ QuizFront.showQuizBoard = function() {
 }
 
 QuizFront.showSummaryBoard = function() {
-  var block = $('#game-summary ul');
+  var block = $('#game-summary table.scores tbody');
   $.each(Player.getAll(), function(idx) {
-    var playerBlock = $('<li class="player-' + idx +
-        '"><span class="name"></span><span class="score"></span></li>');
+    var playerBlock = $('<tr class="player player-' + idx +
+        '"><td class="avatar"><div class="image"><img src="" /></div></td><td class="name"></td><td class="score points"></td></tr>');
     var playerProfile = PlayerProfile.get( Player.get(idx).getProfileId() );
     playerBlock.find('.name').text( playerProfile.getName() );
+    playerBlock.find('td.avatar img').attr( 'src', playerProfile.getImage() );
     block.append(playerBlock);
     QuizFront.updatePlayerScore(idx);
   });

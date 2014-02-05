@@ -1,0 +1,291 @@
+/*
+ * @author Damian Duda <dduda@nexway.com>
+ */
+
+// LAYOUT
+body {
+    min-width: 100%;
+
+    section {
+        min-height: 30em;
+
+        .content {
+            .clearfix;
+
+            .wrapper-answers {
+                float: left;
+                width: 55em;
+                // background: rgba(255,255,255,.1);
+
+                .answers {
+                    margin: 0;
+                    padding: 1em;
+                    padding-left: 1.2em;
+                    -webkit-transform: perspective(20em) rotateX(0deg) rotateY(2deg) rotateZ(0deg);
+                    transform: perspective(20em) rotateX(0deg) rotateY(2deg) rotateZ(0deg);
+
+                    li {
+                        margin-top: 1.2em;
+                        padding: 1.4em;
+                        background: #172435;
+                        #gradient .vertical(#192648, #000D10);
+                        border: 0.3em solid white;
+                        border-radius: 0.3em;
+                        box-shadow: -0.5em -0.5em 0.5em rgba(0,0,0,.4);    
+                        text-align: left;  
+
+                        &.blue {
+                            // background: blue;
+                            border-color: @answer-blue-color;
+                            margin: 0;
+
+                            &.correct {
+                                box-shadow: 0 0 1.3em @answer-blue-color;
+                                border-color: lighten(@answer-blue-color, 10%);
+                            }
+                        }
+
+                        &.orange {
+                            // background: orange;
+                            border-color: @answer-orange-color;
+
+                            &.correct {
+                                box-shadow: 0 0 1.3em @answer-orange-color;
+                                border-color: lighten(@answer-orange-color, 10%);
+                            }                            
+                        }
+
+                        &.green {
+                            // background: green;
+                            border-color: @answer-green-color;
+
+                            &.correct {
+                                box-shadow: 0 0 1.3em @answer-green-color;
+                                border-color: lighten(@answer-green-color, 10%);
+                            }                            
+                        }
+
+                        &.yellow {
+                            // background: yellow;
+                            border-color: @answer-yellow-color;
+
+                            &.correct {
+                                box-shadow: 0 0 1.3em @answer-yellow-color;
+                                border-color: lighten(@answer-yellow-color, 10%);
+                            }                            
+                        }
+
+                        &.correct {
+                            border-width: 0.3em;
+                            text-shadow: 0 0 0.1em black;
+                            #gradient .vertical(lighten(#192648, 20%), lighten(#000D10, 10%));
+                            -webkit-animation: 1600ms pulsate infinite alternate ease-in-out;
+                            -moz-animation: 1600ms pulsate infinite alternate ease-in-out;
+                            -ms-animation: 1600ms pulsate infinite alternate ease-in-out;
+                            -o-animation: 1600ms pulsate infinite alternate ease-in-out;
+                            animation: 1600ms pulsate infinite alternate ease-in-out;
+                        }
+
+                        &.incorrect {
+                            border-color: rgba(255,255,255,.3);
+                            color: rgba(255,255,255,.4);
+                        }
+                    }
+                }
+            }
+
+            .wrapper-players {
+                .clearfix;
+                float: right;
+                width: 40em;
+                // background: rgba(255,255,255,.1);  
+
+                .players {
+                    .clearfix;
+                    margin: 0;
+                    padding: 1em;
+                    padding-right: 1.2em;
+                    float: right;
+                    -webkit-transform: perspective(20em) rotateX(0deg) rotateY(-2deg) rotateZ(0deg);
+                    transform: perspective(20em) rotateX(0deg) rotateY(-2deg) rotateZ(0deg);
+
+                    li.player {
+                        display: table;
+                        // background: rgba(0,0,0,.8);
+                        padding: 0.5em;
+                        height: 7em;
+                        .box-sizing(border-box);
+                        overflow: hidden;
+
+                        &.left {
+                            float: left;
+                        }
+
+                        .status, .info-player, .avatar {
+                            display: table-cell;
+                            vertical-align: middle;
+                        }
+
+                        .status {
+                            width: 5.7em;
+
+                            &.selected {
+                                .checked {
+                                    display: block;
+                                }   
+
+                                &.blue, &.orange, &.green, &.yellow {
+                                    .checked {
+                                        span:before {
+                                            content: "\f00d";
+                                            font-family: 'FontAwesome'; 
+                                            color: #CC0033;
+                                            font-size: 3.5em; 
+                                        }                                        
+                                    }
+                                } 
+
+                                &.correct {
+                                    .checked {
+                                        -webkit-animation: 1600ms pulsate infinite alternate ease-in-out;
+                                        -moz-animation: 1600ms pulsate infinite alternate ease-in-out;
+                                        -ms-animation: 1600ms pulsate infinite alternate ease-in-out;
+                                        -o-animation: 1600ms pulsate infinite alternate ease-in-out;
+                                        animation: 1600ms pulsate infinite alternate ease-in-out;
+
+                                        span:before {
+                                            content: "\f00c";
+                                            font-family: 'FontAwesome';  
+                                            font-size: 3.5em;                                          
+                                        }
+                                    }
+                                }                                                        
+
+                                &.blue {
+                                    .checked {
+                                        border-color: @answer-blue-color;
+                                        box-shadow: 0 0 0.3em #000, inset 0 0.1em 0.1em rgba(0,0,0,.5);
+                                    }  
+
+                                    &.correct {
+                                        .checked {
+                                            border-color: lighten(@answer-blue-color, 10%);
+                                            box-shadow: 0 0 1em @answer-blue-color;
+                                        
+                                            span:before {
+                                                color: lighten(@answer-yellow-color, 5%);
+                                                text-shadow: 0 0 0.5em @answer-blue-color;
+                                            }
+                                        }
+                                    }                                                           
+                                }
+
+                                &.orange {
+                                    .checked {
+                                        border-color: @answer-orange-color;
+                                        box-shadow: 0 0 0.3em #000;
+                                    }
+
+                                    &.correct {
+                                        .checked {
+                                            border-color: lighten(@answer-orange-color, 10%);
+                                            box-shadow: 0 0 1em @answer-orange-color;
+                                        
+                                            span:before {
+                                                color: lighten(@answer-yellow-color, 5%);
+                                                text-shadow: 0 0 0.5em @answer-orange-color;
+                                            }
+                                        }
+                                    }                                     
+                                }
+
+                                &.green {
+                                    .checked {
+                                        border-color: @answer-green-color;
+                                        box-shadow: 0 0 0.3em #000;
+                                    }
+
+                                    &.correct {
+                                        .checked {
+                                            border-color: lighten(@answer-green-color, 10%);
+                                            box-shadow: 0 0 1em @answer-green-color;
+
+                                            span:before {
+                                                color: lighten(@answer-green-color, 5%);
+                                                text-shadow: 0 0 0.5em @answer-green-color;
+                                            }
+                                        }
+                                    }
+                                }
+
+                                &.yellow {
+                                    .checked {
+                                        border-color: @answer-yellow-color;
+                                        box-shadow: 0 0 0.3em #000;
+                                    }
+
+                                    &.correct {
+                                        .checked {
+                                            border-color: lighten(@answer-yellow-color, 10%);
+                                            box-shadow: 0 0 1em @answer-yellow-color;
+                                        
+                                            span:before {
+                                                color: lighten(@answer-yellow-color, 5%);
+                                                text-shadow: 0 0 0.5em @answer-yellow-color;
+                                            }
+                                        }
+                                    }                                    
+                                }                          
+                            }
+
+                            .checked {
+                                background: #172435;
+                                #gradient .vertical(#587092, #14243D);
+                                display: block; 
+                                width: 5em;   
+                                height: 5em;    
+                                line-height: 4.5em;
+                                border-radius: 0.3em;
+                                border: 0.3em solid white;
+                                display: none;
+
+                                span {
+
+                                }
+                            }                          
+                        }
+
+                        .info-player {
+                            width: 10em;
+                            text-align: center;
+                            padding-right: 0.5em;
+
+                            .name, .points {
+                                width: 10em;
+                                background: #172435;
+                                #gradient .vertical(#587092, #14243D);                                 
+                                height: 3em;
+                                line-height: 3em;
+                                border-radius: 0.3em;
+                                padding: 0 0.4em;
+                                .text-overflow;
+                                text-transform: uppercase;
+                            }
+                        }
+
+                        .avatar {
+                            .image {
+
+                                img {
+                                    border-radius: 0.3em;
+                                    border: 0.3em solid #203656;
+                                    width: 7em;
+                                }
+                            }
+                        }
+                    }
+                }              
+            }
+        }
+    }
+}
