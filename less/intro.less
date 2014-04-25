@@ -1,0 +1,106 @@
+/*
+ * @author Damian Duda <dduda@nexway.com>
+ */
+
+
+/*======================
+    STYLES FOR INTRO  
+========================*/
+
+html body {
+    // background: #000 !important;
+    overflow: hidden;
+// background: rgb(30,87,153); /* Old browsers */
+// background: -moz-linear-gradient(top,  rgba(30,87,153,1) 0%, rgba(0,0,0,1) 51%, rgba(0,0,0,1) 68%, rgba(242,242,242,1) 100%); /* FF3.6+ */
+// background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(30,87,153,1)), color-stop(51%,rgba(0,0,0,1)), color-stop(68%,rgba(0,0,0,1)), color-stop(100%,rgba(242,242,242,1))); /* Chrome,Safari4+ */
+// background: -webkit-linear-gradient(top,  rgba(30,87,153,1) 0%,rgba(0,0,0,1) 51%,rgba(0,0,0,1) 68%,rgba(242,242,242,1) 100%); /* Chrome10+,Safari5.1+ */
+// background: -o-linear-gradient(top,  rgba(30,87,153,1) 0%,rgba(0,0,0,1) 51%,rgba(0,0,0,1) 68%,rgba(242,242,242,1) 100%); /* Opera 11.10+ */
+// background: -ms-linear-gradient(top,  rgba(30,87,153,1) 0%,rgba(0,0,0,1) 51%,rgba(0,0,0,1) 68%,rgba(242,242,242,1) 100%); /* IE10+ */
+// background: linear-gradient(to bottom,  rgba(30,87,153,1) 0%,rgba(0,0,0,1) 51%,rgba(0,0,0,1) 68%,rgba(242,242,242,1) 100%); /* W3C */
+// filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1e5799', endColorstr='#f2f2f2',GradientType=0 ); /* IE6-9 */
+
+
+
+}
+
+.intro {
+    .intro-text {
+        position: relative;
+        margin-top: 10em;
+
+        // &:after {
+        //     display: block;
+        //     content: "";
+        //     width: 100%;
+        //     height: .1em;
+        //     background: #FFF;
+        //     position: absolute;
+        //     font-size: 5em;
+        //     font-family: 'Press Start 2P', cursive;
+        //     top: 3.1em;
+
+        // }
+
+        span {
+            display: inline-block;
+            position: relative;
+            font-size: 5em;
+            font-family: 'Press Start 2P', cursive;
+
+
+            &.up {
+                // .transition("all 1s");
+                /** /
+                -webkit-animation: 1s up-down infinite alternate ease-in;
+                -moz-animation: 1s up-down infinite alternate ease-in;
+                -ms-animation: 1s up-down infinite alternate ease-in;
+                -o-animation: 1s up-down infinite alternate ease-in;
+                animation: 1s up-down infinite alternate ease-in;
+                /*/
+
+                -webkit-animation: 1.2s up-down infinite alternate ease-in-out;
+                -moz-animation: 1.2s up-down infinite alternate ease-in-out;
+                -ms-animation: 1.2s up-down infinite alternate ease-in-out;
+                -o-animation: 1.2s up-down infinite alternate ease-in-out;
+                animation: 1.2s up-down infinite alternate ease-in-out;
+                /**/
+            }
+        }
+    }
+}
+
+@-moz-keyframes up-down
+{
+0% {top: 0em;}
+100% {top: 1em;}
+}
+
+
+@-webkit-keyframes up-down
+{
+0% {top: 0em;}
+100% {top: 1em;}
+}
+
+
+/** /
+@-moz-keyframes up-down
+{
+0% {top: 0em; color:red; -moz-transform: rotate(35deg);text-shadow: 0 0 2px #FFF,0 0 10px red;}
+25% {color: yellow;text-shadow: 0 0 2px #FFF,0 0 10px yellow;}
+50% {color: green;text-shadow: 0 0 2px #FFF,0 0 10px green;}
+75% {color: purple;text-shadow: 0 0 2px #FFF,0 0 10px purple;}
+100% {top: 2em; color: blue; text-shadow: 0 0 2px #FFF,0 0 10px blue,0 -5px 20px white, -5px 10px 15px white;}
+}
+
+
+@-webkit-keyframes up-down
+{
+0% {top: 0em; color:red; -webkit-transform: rotate(35deg);text-shadow: 0 0 2px #FFF,0 0 10px red;}
+25% {color: yellow;text-shadow: 0 0 2px #FFF,0 0 10px yellow;}
+50% {color: green;text-shadow: 0 0 2px #FFF,0 0 10px green;}
+75% {color: purple;text-shadow: 0 0 2px #FFF,0 0 10px purple;}
+100% {top: 2em; color: blue; text-shadow: 0 0 2px #FFF,0 0 10px blue,0 -5px 20px white, -5px 10px 15px white;}
+}
+
+/**/

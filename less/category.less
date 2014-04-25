@@ -1,0 +1,69 @@
+/*
+ * @author Mariusz Maroń <mmaron@nexway.com>
+ */
+
+// LAYOUT
+
+body {
+    section {
+        .choose-category {
+            line-height: 3em;
+            font-size: 1.3em;
+        }
+
+        #category {
+            display: inline-block;
+            width: 5em;
+            text-align: center;
+            font-size: 1em;
+            .box-shadow(0 0 0 0.2em orange);
+        }
+
+        .choose-category {
+            width: 600px;
+            margin: 0 auto;
+            .category-selector {
+                &.level0 {
+                    padding: 0;
+                    margin: 0;
+                    .category {
+                        #gradient .vertical(#192648, #172435);
+                        .box-shadow(0 0 .62em 0 rgba(36, 83, 175, .9));
+                        display: block;
+                        margin: 5px 0px;
+                        border-radius: .18em;
+                        border: 3px solid white;
+                        box-shadow: -10px -10px 10px rgba(0,0,0,.4);    
+                        border-radius: 3px;
+                        a {
+                            padding: 20px 30px;
+                            display: block;
+                            color: white;
+                            text-transform: uppercase;
+                            &:hover {
+                                text-decoration: none;
+                            }
+                        }
+                        ul.level1 {
+                            display: none;
+                            background: white;
+                            color: black;
+                            margin: 0;
+                            padding: 0;
+                            .subcategory {
+                                a {
+                                    text-transform: uppercase;
+                                    color: black;
+                                    border-top: 1px solid #000;
+                                    &:hover {
+                                        text-decoration: none;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

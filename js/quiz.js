@@ -74,9 +74,11 @@ function Quiz() {
           'answerId' : answerId
         });
         if (Player.allAnswered()) {
-          $.event.trigger({
-            'type' : 'game:close-question',
-          });
+          setTimeout(function(){
+            $.event.trigger({
+              'type' : 'game:close-question',
+            });
+          }, 500);
         }
         break;
     }

@@ -1,10 +1,16 @@
 <?php
 
   //$ip = $_SERVER['SERVER_ADDR'];
-  $ip = '192.168.1.133';
+  $ip = '127.0.0.1';
 
 ?><html>
 <head>
+<title>Nexway Quizz</title>
+    <!-- Styles -->
+    <link rel="stylesheet/less" type="text/css" href="less/main.less">
+
+    <script>less = {}; less.env = 'development';</script>
+    <script src="js/less-1.5.0.min.js" type="text/javascript"></script>
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
     <script src="<?php echo "http://$ip:90/socket.io/socket.io.js"; ?>"></script>
     <script src="js/player.js"></script>
@@ -15,29 +21,23 @@
     <script>
       var BASE_IP = '<?php echo $ip; ?>';
     </script>
-    <style type="text/css">
-        body {
-          font-family: 'Lucida Console', Monaco, monospace; 
-          font-size: 18pt 
-        }
 
+    <link rel="stylesheet" type="text/css" href="css/font-awesome.css">
+
+    <link href='http://fonts.googleapis.com/css?family=Capriola' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Basic&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+
+    <style type="text/css">
         #game-players .player-name {
           display: block;
           text-align: center;
-          padding: 5px 0;
+          padding: 1em 0;
         }
-        #game-players .player-image {
-          width: 160px;
-          height: 160px;
-        }
+
         #game-players .player-confirm {
           display: block;
           text-align: center;
           font-size: 26pt;
-        }
-        #game-players div.player {
-          float: left;
-          margin: 30px;
         }
 
         .answer-1 { border-color: blue; }
@@ -45,65 +45,53 @@
         .answer-3 { border-color: green; }
         .answer-4 { border-color: yellow; }
 
-        #game-answers {
-          width: 70%;
-          margin: 40px 0;
-        }
-        #game-answers ul {
-          list-style-type: none;
-        }
-        #game-answers li {
-          border-width: 2px;
-          border-style: solid;
-          border-radius: 10px;
-          padding: 5px 10px;
-          margin: 30px 0;
-        }
-        #game-players-mini {
-          width: 20%;
-          float: right;
-        }
-        #game-players-mini ul {
-          list-style-type: none;
-        }
-        #game-players-mini li .score {
-          padding: 0 20px;
-        }
-
-        #game-summary li .score {
-          padding: 0 20px;
-        }
-
     </style>
 </head>
-<body>
-	category id (backend = 1, frontend = 2): <input id="category" type="text" value="1" />
-    <div id="game-players"></div>
-    <div id="game-quiz" style="display: none">
-      <div id="game-players-mini">
-        <ul></ul>
-      </div>
-      <div id="game-question"></div>
-      <div id="game-answers">
-        <ul>
-          <li id="game-answer-1" class="answer-1"></li>
-          <li id="game-answer-2" class="answer-2"></li>
-          <li id="game-answer-3" class="answer-3"></li>
-          <li id="game-answer-4" class="answer-4"></li>
-        </ul>
-      </div>
+<body id="game-wrap">
 
-      <div id="game-answers-references">
-	<ul>
-          <li id="game-answer-reference-1" class="answer-reference-1"><a href="#">reference link</a></li>
-          <li id="game-answer-reference-1" class="answer-reference-1"><a href="#">reference link</a></li>
-	</ul>
-     </div>
-    </div>
-    <div id="game-summary" style="display: none">
-      END<br />
-      <ul></ul>
-    </div>
+  <div class="container em-based">
+    <section>
+
+        <div class="choose-category">Category id (backend = 1, frontend = 2):</div>
+        <input id="category" class="form-control" type="text" value="1" />
+        <div id="game-players" class="choose-player"></div>
+        <div id="game-quiz" style="display: none">
+          <div class="question-container">
+            <div class="question">
+              <span id="game-question" class="text"></span>
+            </div>
+          </div>
+          <div class="content">
+            <div id="game-answers" class="wrapper-answers">
+              <ul class="answers">
+                <li id="game-answer-1" class="answer-1 blue"></li>
+                <li id="game-answer-2" class="answer-2 orange"></li>
+                <li id="game-answer-3" class="answer-3 green"></li>
+                <li id="game-answer-4" class="answer-4 yellow"></li>
+              </ul>
+            </div>
+            <div id="game-players-mini" class="wrapper-players">
+              <ul class="players"></ul>
+            </div>
+          </div>
+
+          <div id="game-answers-references">
+            <ul>
+              <li id="game-answer-reference-1" class="answer-reference-1"><a href="#">reference link</a></li>
+              <li id="game-answer-reference-1" class="answer-reference-1"><a href="#">reference link</a></li>
+            </ul>
+         </div>
+        </div>
+        <div id="game-summary" style="display: none">
+          <h2 class="complate">QUIZZ COMPLETE! <span class="try">Try again</span></h2>
+          <table class="table table-bordered scores">
+            <tbody>
+            </tbody>
+          </table>
+        </div>
+
+    </section>
+  </div>
 
     <script src="js/quiz.js"></script>
     <script src="js/quiz-front.js"></script>
@@ -217,5 +205,6 @@
       //
       quiz.getGame().setState(Game.STATE_JOINING);
     </script>
+    <script src="js/custom.js" type="text/javascript"></script>
 </body>
 </html>
