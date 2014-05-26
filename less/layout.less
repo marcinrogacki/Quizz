@@ -9,6 +9,16 @@ body {
     section {
         min-height: 30em;
 
+        .question {
+            .text {
+                font-size: 22pt !important;
+            }
+        }
+
+        #game-summary table {
+            zoom: 0.85;
+        }
+
         .content {
             .clearfix;
 
@@ -32,7 +42,8 @@ body {
                         border: 0.3em solid white;
                         border-radius: 0.3em;
                         box-shadow: -0.5em -0.5em 0.5em rgba(0,0,0,.4);    
-                        text-align: left;  
+                        text-align: left;
+                        font-size: 17pt;
 
                         &.blue {
                             // background: blue;
@@ -78,7 +89,7 @@ body {
                         &.correct {
                             border-width: 0.3em;
                             text-shadow: 0 0 0.1em black;
-                            #gradient .vertical(lighten(#192648, 20%), lighten(#000D10, 10%));
+                            //#gradient .vertical(lighten(#192648, 20%), lighten(#000D10, 10%));
                             -webkit-animation: 1600ms pulsate infinite alternate ease-in-out;
                             -moz-animation: 1600ms pulsate infinite alternate ease-in-out;
                             -ms-animation: 1600ms pulsate infinite alternate ease-in-out;
@@ -98,6 +109,7 @@ body {
                 .clearfix;
                 float: right;
                 width: 40em;
+                zoom: 0.9;
                 // background: rgba(255,255,255,.1);  
 
                 .players {
@@ -274,12 +286,26 @@ body {
                         }
 
                         .avatar {
-                            .image {
+			    position: relative;
 
+                            span {
+                                font-family: 'FontAwesome'; 
+                                color: #fff;
+                                font-size: 3.5em; 
+				top: 15%;
+				left: 30%;
+				position: absolute;
+				text-shadow: #000000 0px 0px 25px;
+                            }
+                            .image {
                                 img {
                                     border-radius: 0.3em;
                                     border: 0.3em solid #203656;
                                     width: 7em;
+
+                                    &.faded {
+                                      .opacity(0.5);
+                                    }
                                 }
                             }
                         }

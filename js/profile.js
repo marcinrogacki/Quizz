@@ -39,3 +39,6 @@ PlayerProfile.add('mtasak', 'https://0.gravatar.com/avatar/49abf1ec428936df921a6
 PlayerProfile.add('kgorecki', 'https://0.gravatar.com/avatar/3adce4cbc7ab549bdbb06e9016e95941?d=https%3A%2F%2Fidenticons.github.com%2F322219a2830632b395dcd23b63f03a36.png&r=x&s=160');
 PlayerProfile.add('damian', 'https://1.gravatar.com/avatar/c57fb182eaeecee2909542ae32c7d062?d=https%3A%2F%2Fidenticons.github.com%2Fc82cefd94c2938a7da1491fb099101f4.png&r=x&s=160');
 PlayerProfile.add('mmaron', 'https://2.gravatar.com/avatar/5de6f3234b1617d619f68100ac5347e1?d=https%3A%2F%2Fidenticons.github.com%2Fbc78b8832386606d40259512edb71d37.png&r=x&s=160');
+//PlayerProfile.add('lkrupinski', 'https://fbcdn-profile-a.akamaihd.net/hprofile-ak-prn1/t1.0-1/c62.62.776.776/s160x160/409255_2126545743019_295066914_n.jpg');
+//PlayerProfile.add('mgil', 'https://fbcdn-profile-a.akamaihd.net/hprofile-ak-prn1/t1.0-1/c113.33.414.414/s160x160/539224_4381068606233_195886734_n.jpg');
+PlayerProfile.add('cgautier', 'https://lh6.googleusercontent.com/-zQ6wawls8eE/AAAAAAAAAAI/AAAAAAAAACs/NOsy0rMcUek/s120-c/photo.jpg');

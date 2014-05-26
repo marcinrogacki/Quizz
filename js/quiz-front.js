@@ -34,8 +34,27 @@ QuizFront.confirmProfile = function(playerId) {
 
 // q&a
 QuizFront.updatePlayerScore = function(playerId) {
-  $('.player-' + playerId + ' .score').each(function(idx, block) {
-    $(block).text(Player.get(playerId).getScore());
+  $('.player-' + playerId).each(function(idx, player) {
+    var playerObject = Player.get(playerId);
+    if (null != Question.getCurrent()) {
+        var correctId = Question.getCurrent().getCorrect();
+        if (!playerObject.canAnswer(Question.getCurrentId())) {
+            $(player).find('.avatar img').addClass('faded');
+            if (playerObject.getLastAnswer() == correctId) {
+                $(player).find('.avatar span').html('&#xf058;');
+            } else {
+                $(player).find('.avatar span').html('&#xf057;');
+            }
+        }
+    }
+    $(player).find('.score').text(playerObject.getScore());
+  });
+}
+
+QuizFront.cleanupPlayersScore = function() {
+  $('.players .player').each(function(idx, player) {
+    $(player).find('.avatar span').html('');
+    $(player).find('.avatar img').removeClass('faded');
   });
 }
 
@@ -43,7 +62,7 @@ QuizFront.showQuizBoard = function() {
   var block = $('#game-players-mini ul');
   $.each(Player.getAll(), function(idx) {
     var playerBlock = $('<li class="player player-' + idx + 
-        '"><div class="info-player"><div class="name"></div><div class="score points"></div></div><div class="avatar"><div class="image"><img src="" /></div></div></li>');
+        '"><div class="info-player"><div class="name"></div><div class="score points"></div></div><div class="avatar"><div class="image"><img src="" /><span></span></div></div></li>');
     var playerProfile = PlayerProfile.get( Player.get(idx).getProfileId() );
     playerBlock.find('.name').text( playerProfile.getName() );
     playerBlock.find('.avatar img').attr( 'src', playerProfile.getImage() );
@@ -87,6 +106,6 @@ QuizFront.showSummaryBoard = function() {
 QuizFront.loadQuestion = function(question) {
   $('#game-question').html(question.getQuestion());
   $.each(question.getAnswers(), function(idx, value) {
-    $('#game-answer-' + (idx+1)).text(value);
+    $('#game-answer-' + (idx+1)).html(value);
   });
 }

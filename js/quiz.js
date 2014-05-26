@@ -66,6 +66,7 @@ function Quiz() {
         if (null === player || answerId < 0 || !player.canAnswer(questionId)) {
           break;
         }
+        var correctAnswerId = Question.getCurrent().getCorrect();
         player.setLastAnswer(questionId, answerId);
         $.event.trigger({
           'type' : 'player:answer',
@@ -73,8 +74,15 @@ function Quiz() {
           'buzzerId' : buzzerId,
           'answerId' : answerId
         });
+        $.event.trigger({
+          'type' : 'player:answer-' + (answerId == correctAnswerId ? 'correct' : 'incorrect'),
+          'playerId' : player.getId(),
+          'buzzerId' : buzzerId,
+          'answerId' : answerId,
+          'correctAnswerId' : correctAnswerId
+        }); 
         if (Player.allAnswered()) {
-          setTimeout(function(){
+          setTimeout(function() {
             $.event.trigger({
               'type' : 'game:close-question',
             });

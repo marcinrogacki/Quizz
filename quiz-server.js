@@ -27,8 +27,8 @@ function handler (req, res) {
 */
 
 var buzzer1 = new buzzers.BuzzerController();
-//var buzzer2 = new buzzers.BuzzerController(null, null, 4096);
-var buzzer2 = null;
+var buzzer2 = new buzzers.BuzzerController(null, null, 4096);
+//var buzzer2 = null;
 
 function blinkLed(buzzerNumber)
 {
@@ -56,7 +56,7 @@ buzzer1.on('button', function (buzzer, button, state) {
     }
 });
 
-/*buzzer2.on('button', function (buzzer, button, state) {
+buzzer2.on('button', function (buzzer, button, state) {
     io.sockets.emit('click', {
         'buzzer' : buzzer + 4,
         'button' : button,
@@ -65,4 +65,4 @@ buzzer1.on('button', function (buzzer, button, state) {
     if (state) {
         blinkLed(buzzer + 4);
     }
-});*/
+});

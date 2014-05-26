@@ -46,12 +46,12 @@ function Player() {
 
   this.setLastAnswer = function(questionId, answerId) {
 
-    this.lastQuestionId = questionId;
-    this.lastAnswerId = answerId;
+    this.lastQuestion = questionId;
+    this.lastAnswer = answerId;
   }
 
   this.getLastQuestion = function() {
-    return this.lastQuestionId;
+    return this.lastQuestion;
   }
 
   this.getLastAnswer = function() {
