@@ -39,7 +39,7 @@ I:  If#= 0 Alt= 0 #EPs= 1 Cls=03(HID  ) Sub=00 Prot=00 Driver=usbhid
 5. Test if everything works
 
 ```
-> sudo nodejs show-devices.js 
+> sudo nodejs show-devices.js
 devices: [{
     vendorId:     1356,
     productId:    2,
@@ -47,7 +47,7 @@ devices: [{
     manufacturer: 'Logitech',
     product:      'Logitech Buzz(tm) Controller V1',
     release:      4353,
-    interface:    0 
+    interface:    0
 }]
 ```
 
@@ -56,3 +56,18 @@ devices: [{
 ```
 > sudo nodejs quiz-server.js
 ```
+
+
+# Troubleshooting
+
+```
+../hidapi/libusb/hid.c:47:20: fatal error: libusb.h: No such file or directory
+```
+
+sudo apt-get install libusb-dev libusb-1.0-0-dev
+
+```
+gyp ERR! stack Error: Python executable "python" is v3.4.2, which is not supported by gyp.
+```
+
+If you have both python version and want to set python2 as default: `export PYTHON=python2.7`

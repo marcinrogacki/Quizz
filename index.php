@@ -1,9 +1,4 @@
-<?php
-
-  //$ip = $_SERVER['SERVER_ADDR'];
-  $ip = '127.0.0.1';
-
-?><html>
+<html>
 <head>
 <title>Nexway Quizz</title>
     <!-- Styles -->
@@ -12,7 +7,6 @@
     <script>less = {}; less.env = 'development';</script>
     <script src="js/less-1.5.0.min.js" type="text/javascript"></script>
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-    <script src="<?php echo "http://$ip:90/socket.io/socket.io.js"; ?>"></script>
     <script src="js/player.js"></script>
     <script src="js/profile.js"></script>
     <script src="js/buzzer.js"></script>
@@ -20,13 +14,13 @@
     <script src="js/game.js"></script>
     <script src="js/game-audio.js"></script>
     <script>
-      var BASE_IP = '<?php echo $ip; ?>';
+      var BASE_IP = '127.0.0.1';
     </script>
 
     <link rel="stylesheet" type="text/css" href="css/font-awesome.css">
 
-    <link href='http://fonts.googleapis.com/css?family=Capriola' rel='stylesheet' type='text/css'>
-    <link href='http://fonts.googleapis.com/css?family=Basic&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Capriola' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Basic&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
 
     <style type="text/css">
         #game-players .player-name {
@@ -104,7 +98,8 @@
     <script type="text/javascript">
       var quiz = new Quiz();
 
-      var socket = io.connect('http://' + BASE_IP + ':90');
+      var server = require('http').createServer();
+      var io = require('socket.io')(server);
       socket.on('click', function(data) {
         quiz.onBuzzerClick(data.buzzer, data.button, data.state);
       });
@@ -141,7 +136,7 @@
       $(document).on('player:join', function(data) {
         console.log('player:join', data);
         var playerId = data.playerId;
-        QuizFront.setPlayerProfile(playerId, 0); 
+        QuizFront.setPlayerProfile(playerId, 0);
       });
 
       $(document).on('player:profile-up', function(data) {
@@ -224,7 +219,7 @@
         correct.addClass('correct');
         setTimeout(function() {
             correct.removeClass('correct');
-            QuizFront.cleanupPlayersScore(); 
+            QuizFront.cleanupPlayersScore();
             Question.getNext();
         }, 5000);
       });

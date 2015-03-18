@@ -1,7 +1,8 @@
 var app = require('http').createServer(handler)
   , io = require('socket.io').listen(app)
   , fs = require('fs')
-  , buzzers = require('./buzzers');
+//  , buzzers = require('buzzers'),
+  , buzzers = require('node-hid');
 
 app.listen(90);
 
