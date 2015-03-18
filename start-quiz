@@ -1,0 +1,7 @@
+sudo killall -9 chromium-browser
+sudo killall -9 nodejs
+sleep 2s
+sudo nodejs /root/node-buzz/quiz-server.js &
+sleep 2s
+chromium-browser --ignore-certificate-errors --disable-web-security 192.168.1.133:81/index.php &
+read
